@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Homepage</title>
+<style>
+	.logo_container{
+	  text-align: center;
+	}
+  </style>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link href="\static\css\style.css" rel="stylesheet" type="text/css">
+<link href="\static\css\style2.css" rel="stylesheet" type="text/css">
+<link href="\static\css\buttoncss.css" rel="stylesheet" type="text/css"> 
+<link rel="stylesheet" media="screen" href = "/static/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="header">
+		<div class="inner_header">
+	  		<div class="logo_container">
+	    		<img src="\static\image\logomasjid4.png" width="170" height="50" alt="logo"/> </div>
+		  
+				<ul class="navigation">
+				<a href="/home"><li>Home</li></a>
+				<a href="/list_booking"><li>Booking list</li></a>
+				<a href="/new_booking"><li>New Booking</li></a>
+				<a href="/list_space"><li>Space list</li></a>
+		  		<a><li>Logout</li></a>
+				</ul> 
+	  		</div>
+    	</div>
+	</div>
+	<div class="container">
+		{%block content%}
+		{%endblock%}
+	  </div>
+</body> 
+</html>

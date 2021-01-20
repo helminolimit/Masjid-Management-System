@@ -1,0 +1,21 @@
+{% extends "homepage.html" %}
+
+{% block content %}
+<table class="table">
+
+<tr>
+<th>Space ID</th>
+<th>Space Name </th>
+
+</tr>
+{% for row in rows %}
+ <tr>
+   <td>{{row[0]}}</td>
+   <td>{{row[1]}}</td>
+     
+ </tr>
+
+{% endfor %}
+</table>
+
+{% endblock %}

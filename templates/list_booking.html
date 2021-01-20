@@ -1,0 +1,30 @@
+{% extends "homepage.html" %}
+
+{% block content %}
+<table class="table">
+
+<tr>
+<th>Booking ID</th>
+<th>Booking Time/Date</th>
+<th>Booking Purpose</th>
+<th>Space Name</th>
+
+
+</tr>
+{% for row in rows %}
+ <tr>
+   <td>{{row[0]}}</td>
+   <td>{{row[1]}}</td>
+   <td>{{row[2]}}</td>
+   <td>{{row[3]}}</td>
+   
+   <td><a href='/delete/{{row[0]}}'> <button type="button" class="btn btn-danger">Delete</button> </a>
+   <td><a href='/edit/{{row[0]}}'> <button type="button" class="btn btn-success">Update</button> </a>
+  
+
+ </tr>
+
+{% endfor %}
+</table>
+
+{% endblock %}
