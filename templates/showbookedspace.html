@@ -1,0 +1,34 @@
+{% extends "homepage.html" %}
+
+
+{% block content %}
+
+<style>
+    .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.button {
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: white; /* Green */
+  color:green;
+}
+
+</style>
+
+{%if row==None: %}
+  <img src="static/image/newavai.jpg" class="center" alt="pic"><br>
+  <a href='/new_booking'><button>Click here to book</button></a>
+   
+{% else %}
+ <img src="static/image/newnotavai.jpg" class="center" alt="pic">
+ 
+{% endif %}
+
+{% endblock %}

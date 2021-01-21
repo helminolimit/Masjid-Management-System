@@ -8,28 +8,33 @@
         text-align:center;
         align:center;
     }
-    
-</style>
 
-    <form action="/update" class="form1" method="POST">
+    .container{
+	background-image: url("/static/image/masjid.jpg");
+	background-size: 100% ;
+	height: max-content;
+    }     
+</style>
+    <div class="booking">
+     <form action="/update" class="form1" method="POST">
         <fieldset>
             <legend>Booking Form</legend>
             <label for="book_time_date">Time to use:</label><br>
             <input type="datetime-local" id="book_time_date" name="book_time_date" required><br><br>
-            <label for="space">Choose a space:</label><br>
-            <select type="label" id="space" name="space" required>
-                <option value="Dewan Solat (Dalam)">Dewan Solat (Dalam)</option>
-                <option value="Halaman Pusat Islam">Halaman Pusat Islam</option>
-                <option value="Dapur Masjid">Dapur Masjid</option>
-                <option value="Tempat Sembelihan">Tempat Sembelihan</option>
-                <option value="Parking Depan">Parking Depan</option>
-                <option value="Parking Belakang">Parking Belakang</option>
-                <option value="Dewan Solat (Luar)">Dewan Solat (Luar)</option>
+            <label for="space_id">Choose a space:</label><br>
+            <select type="label" id="space_id" name="space_id" required>
+                <option value="S1">Dewan Solat (Dalam)</option>
+                <option value="S2">Halaman Pusat Islam</option>
+                <option value="S3">Dapur Masjid</option>
+                <option value="S4">Tempat Sembelihan</option>
+                <option value="S5">Parking Depan</option>
+                <option value="S6">Parking Belakang</option>
+                <option value="S7">Dewan Solat (Luar)</option>
             </select><br><br>
             <label for="purpose">Booking Purpose:</label><br>
             <input type="text" id="purpose" name="purpose" autocomplete="off" required><br><br>
             <input type="submit" value="Submit"> <input type="button" value="Cancel"><br>
         </fieldset>
       </form>
-      
+    </div> 
 {% endblock %}

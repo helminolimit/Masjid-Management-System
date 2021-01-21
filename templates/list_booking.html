@@ -8,7 +8,7 @@
 <th>Booking Time/Date</th>
 <th>Booking Purpose</th>
 <th>Space Name</th>
-
+<th>Status</th>
 
 </tr>
 {% for row in rows %}
@@ -17,11 +17,10 @@
    <td>{{row[1]}}</td>
    <td>{{row[2]}}</td>
    <td>{{row[3]}}</td>
+   <td>{{row[4]}}</td>
    
    <td><a href='/delete/{{row[0]}}'> <button type="button" class="btn btn-danger">Delete</button> </a>
-   <td><a href='/edit/{{row[0]}}'> <button type="button" class="btn btn-success">Update</button> </a>
-  
-
+    
  </tr>
 
 {% endfor %}
