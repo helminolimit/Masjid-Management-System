@@ -17,11 +17,11 @@ app = Flask(__name__)
 
 @app.route("/home")
 def home():
-    return render_template('homepage.html')
+    return render_template('homeinfo.html')
 
 @app.route('/new_booking') #localhost:5000
 def nbooking():
-    rows=['']*2
+    rows=['']*3
     return render_template('booking_page.html', rows=rows)
 
 @app.route('/list_booking') #localhost:5000
@@ -37,24 +37,32 @@ def lspace():
 @app.route('/update',methods=['GET','POST'])
 def insert_booking():
     book_time_date = request.form['book_time_date']
-    
     purpose=request.form['purpose']
+    space_id=request.form['space_id']
           
     if request.method=="POST": 
-      add_booking(book_time_date,purpose)
+      add_booking(book_time_date,purpose,space_id)
       return redirect('/list_booking')
     
     if request.method=='POST':                          
         row=['']*2
         row[0] = book_time_date
         row[1] = purpose
+        row[2] = space_id
 
 @app.route('/delete/<booking_id>')
 def delete(booking_id):  
      delete_booking(booking_id)
      return redirect('/list_booking')
-   
+
+@app.route('/availability',methods=['GET','POST'])
+def find():
+    if request.method=="POST":
+        space_id=request.form['space_id']
+        row=availability(space_id)
+        return render_template('availability.html',row=row)
+       
 # start the server using the run() method
 if __name__ == "__main__":
-     app.secret_key = "!mzo53678912489"
+     app.secret_key = "!mzo53678912489"   
      app.run(debug=True,host='0.0.0.0', port=5000)
