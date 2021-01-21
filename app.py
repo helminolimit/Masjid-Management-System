@@ -58,9 +58,12 @@ def delete(booking_id):
 @app.route('/availability',methods=['GET','POST'])
 def find():
     if request.method=="POST":
-        space_id=request.form['space_id']
-        row=availability(space_id)
-        return render_template('availability.html',row=row)
+       space_id=request.form['space_id']
+       book_time_date=request.form['book_time_date']
+       row=availability(space_id,book_time_date)
+       return render_template('showbookedspace.html',message='Space not available',row=row)
+    else:   
+        return render_template('availability.html')
        
 # start the server using the run() method
 if __name__ == "__main__":
