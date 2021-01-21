@@ -23,10 +23,10 @@ def result():
   for row in rows:
       print (row)
 
-def add_booking(book_time_date,purpose):
+def add_booking(book_time_date,purpose,space_id):
   with sql.connect(connect_db) as db:
-    qry='insert into booking (book_time_date,purpose) values (?,?)' 
-    db.execute(qry,(book_time_date,purpose))
+    qry='insert into booking (book_time_date,purpose,space_id) values (?,?,?)' 
+    db.execute(qry,(book_time_date,purpose,space_id))
 
 # helper function
 
@@ -40,18 +40,18 @@ def login_required(f):
         return redirect(url_for('home'))
   return wrap
 
-def check_space(space_name):
-  with sql.connect(connect_db) as db: 
-    qry = 'select space_name from space where space_name=?'
-    result=db.execute(qry,(space_name,)).fetchone()
-    return(result)
-
-def update_booking(book_time_date, purpose):
+def update_booking(book_time_date, purpose,space_id):
   with sql.connect(connect_db) as db:
-    qry='update booking set book_time_date=?, purpose=?' 
-    db.execute(qry, (book_time_date, purpose))
+    qry='insert into booking (book_time_date,purpose,space_id) values (?,?,?)' 
+    db.execute(qry,(book_time_date,purpose,space_id))
 
 def delete_booking(booking_id):
   with sql.connect(connect_db) as db:
     qry='delete from booking where booking_id=?' 
     db.execute(qry,(booking_id,))
+
+def availability(space_id):
+  with sql.connect(connect_db) as db:
+    qry = 'select * from booking where space_id=?'
+    result=db.execute(qry,(space_id,)).fetchone()
+    return(result)
