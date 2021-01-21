@@ -50,8 +50,8 @@ def delete_booking(booking_id):
     qry='delete from booking where booking_id=?' 
     db.execute(qry,(booking_id,))
 
-def availability(space_id):
+def availability(space_id,book_time_date):
   with sql.connect(connect_db) as db:
-    qry = 'select * from booking where space_id=?'
-    result=db.execute(qry,(space_id,)).fetchone()
+    qry = 'SELECT space_id,book_time_date FROM booking  where space_id=? and book_time_date=? '
+    result=db.execute(qry,(space_id,book_time_date)).fetchone()
     return(result)
